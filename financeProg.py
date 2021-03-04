@@ -227,6 +227,7 @@ class User:
         Values = []
         Initial = []
         Final = []
+        Prof = []
         for n in self.Initial.items():
             key, values = n[0], n[1]
             Keys.append(key)
@@ -241,12 +242,15 @@ class User:
             Net = ((Current - Init)/Init) * 100
             Net = round(Net, 2)
             Values.append(Net)
+            ProfLoss = Current - Init
+            Prof.append(ProfLoss)
+            
 
 
-        Dataf = {"Stocks" : Keys, "Open Value": Initial, "Current": Final, "Net(%)": Values}            
+        Dataf = {"Stocks" : Keys, "Open Value": Initial, "Current": Final, "Net(%)": Values, "Profit(£}": Prof}
         Data = pd.DataFrame(Dataf)
 
-        return Data
+        print(Data)
             
         
         
